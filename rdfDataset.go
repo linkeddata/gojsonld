@@ -195,3 +195,15 @@ func createFrequencyMap(d *Dataset) map[string]int {
 	}
 	return frequencyMap
 }
+
+func (d *Dataset) ToGraphs() []*Graph {
+	graphs := make([]*Graph, 0)
+	for graph := range d.Graphs {
+		newGraph := NewGraph(graph)
+		for _, triple := range d.Graphs[graph] {
+			newGraph.triples[triple] = true
+		}
+		graphs = append(graphs, newGraph)
+	}
+	return graphs
+}
