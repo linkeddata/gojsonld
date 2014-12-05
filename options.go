@@ -6,31 +6,31 @@ const (
 
 type Options struct {
 	// http://www.w3.org/TR/json-ld-api/#widl-JsonLdOptions-base
-	base string
+	Base string
 	// http://www.w3.org/TR/json-ld-api/#widl-JsonLdOptions-compactArrays
-	compactArrays bool
+	CompactArrays bool
 	// http://www.w3.org/TR/json-ld-api/#widl-JsonLdOptions-expandContext
-	expandContext interface{}
+	ExpandContext interface{}
 	// http://www.w3.org/TR/json-ld-api/#widl-JsonLdOptions-documentLoader
-	documentLoader *DocumentLoader
+	DocumentLoader *DocumentLoader
 
 	// Frame options : http://json-ld.org/spec/latest/json-ld-framing/
-	embed       bool
-	explicit    bool
-	omitDefault bool
+	Embed       bool
+	Explicit    bool
+	OmitDefault bool
 
-	useRdfType            bool
-	useNativeTypes        bool
-	produceGeneralizedRdf bool
+	UseRdfType            bool
+	UseNativeTypes        bool
+	ProduceGeneralizedRdf bool
 
 	//TODO
-	format        string
-	useNamespaces bool
-	outputForm    string
+	Format        string
+	UseNamespaces bool
+	OutputForm    string
 }
 
 func NewOptions(base string) *Options {
 	return &Options{
-		compactArrays: true,
+		CompactArrays: true,
 	}
 }
