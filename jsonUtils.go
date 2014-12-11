@@ -6,14 +6,19 @@ import (
 )
 
 func ReadJSONFromFile(path string) (interface{}, error) {
-	file, fileErr := ioutil.ReadFile(path)
-	if fileErr != nil {
-		return nil, fileErr
+	file, err := ioutil.ReadFile(path)
+	if err != nil {
+		return nil, err
 	}
+	data, err := ReadJSON(file)
+	return data, err
+}
+
+func ReadJSON(data []byte) (interface{}, error) {
 	var jsonData interface{}
-	jsonErr := json.Unmarshal(file, &jsonData)
-	if jsonErr != nil {
-		return nil, jsonErr
+	err := json.Unmarshal(data, &jsonData)
+	if err != nil {
+		return nil, err
 	}
 	return jsonData, nil
 }
