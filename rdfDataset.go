@@ -207,3 +207,16 @@ func (d *Dataset) ToGraphs() []*Graph {
 	}
 	return graphs
 }
+
+func (d *Dataset) IterTriples() (ch chan *Triple) {
+	ch = make(chan *Triple)
+	go func() {
+		for graph := range d.Graphs {
+			for _, triple := range d.Graphs[graph] {
+				ch <- triple
+			}
+		}
+		close(ch)
+	}()
+	return ch
+}
