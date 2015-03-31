@@ -52,7 +52,7 @@ func serializeTriple(name string, triple *Triple) string {
 		objectString, name)
 }
 
-func parseDataset(input []byte) (*Dataset, error) {
+func ParseDataset(input []byte) (*Dataset, error) {
 	dataset := NewDataset()
 	readBuffer := bytes.NewBuffer(input)
 	reader := bufio.NewReader(readBuffer)

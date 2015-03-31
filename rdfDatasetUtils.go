@@ -17,6 +17,6 @@ func ReadDatasetFromFile(path string) (*Dataset, error) {
 	if fileErr != nil {
 		return nil, fileErr
 	}
-	dataset, parseErr := parseDataset(file)
+	dataset, parseErr := ParseDataset(file)
 	return dataset, parseErr
 }
