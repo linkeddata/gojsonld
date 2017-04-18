@@ -174,7 +174,7 @@ func (term BlankNode) Equal(other Term) bool {
 }
 
 func (term BlankNode) RawValue() string {
-	return term.String()
+	return term.ID
 }
 
 func isTermBlankNode(term Term) bool {
